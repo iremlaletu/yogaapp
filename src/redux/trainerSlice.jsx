@@ -19,12 +19,17 @@ const initialState = {
   trainers: [],
   loading: false,
   error: null,
+  filteredCity: null,
 };
 
 export const trainerSlice = createSlice({
   name: "Trainers",
   initialState,
-  reducers: {},
+  reducers: {
+    setFilteredCity: (state, action) => {
+      state.filteredCity = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchTrainers.pending, (state) => {
@@ -41,5 +46,7 @@ export const trainerSlice = createSlice({
       });
   },
 });
+
+export const { setFilteredCity } = trainerSlice.actions;
 
 export default trainerSlice.reducer;
