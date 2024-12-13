@@ -14,7 +14,12 @@ const Pricing = () => {
       </div>
 
       <div className="flex justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-stretch px-4">
+        <div
+          data-aos="fade-up"
+          data-aos-offset="200"
+          data-aos-delay="400"
+          className="grid grid-cols-1 md:grid-cols-2 gap-3 items-stretch px-4"
+        >
           {memberships.map((membership) => (
             <MemberShipCard key={membership.id} membership={membership} />
           ))}

@@ -28,21 +28,25 @@ const TrainerPage = () => {
   const cities = [...new Set(trainers.map((trainer) => trainer.city))];
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-4 my-8 p-2">
+      <div
+        data-aos="fade-right"
+        data-aos-offset="200"
+        data-aos-delay="400"
+        className="flex flex-wrap justify-center gap-4 my-8 p-2"
+      >
         {cities.map((city, idx) => (
           <Button key={idx} onClick={() => dispatch(setFilteredCity(city))}>
             {city}
           </Button>
         ))}
       </div>
-      {filteredCity && (
-        <h2 className="text-2xl font-semibold text-center">{filteredCity}</h2>
-      )}
       <div>
         {filteredCity && (
-          <TrainerCalendar trainers={trainers} city={filteredCity} />
+          <h2 className="text-2xl font-semibold text-center">{filteredCity}</h2>
         )}
       </div>
+
+      <div>{filteredCity && <TrainerCalendar />}</div>
     </>
   );
 };
