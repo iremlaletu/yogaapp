@@ -52,3 +52,11 @@
     @apply flex -space-x-4;
   }
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

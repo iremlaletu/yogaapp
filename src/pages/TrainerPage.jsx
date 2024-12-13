@@ -15,7 +15,7 @@ const TrainerPage = () => {
     if (trainers.length === 0) {
       dispatch(fetchTrainers());
     }
-    console.log("çalıştı");
+    console.log("fetched");
   }, [dispatch, trainers]);
 
   if (loading) return <LoadingSpinner />;
