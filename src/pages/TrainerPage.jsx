@@ -27,7 +27,7 @@ const TrainerPage = () => {
     );
   const cities = [...new Set(trainers.map((trainer) => trainer.city))];
   return (
-    <div>
+    <div className="min-h-screen">
       <div
         data-aos="fade-right"
         data-aos-delay="300"
@@ -43,12 +43,11 @@ const TrainerPage = () => {
           </Button>
         ))}
       </div>
-      <div>
-        {filteredCity && (
-          <h2 className="text-2xl font-semibold text-center">{filteredCity}</h2>
-        )}
-        <div>{filteredCity && <TrainerCalendar />}</div>
-      </div>
+
+      {filteredCity && (
+        <h2 className="text-2xl font-semibold text-center">{filteredCity}</h2>
+      )}
+      {filteredCity && <TrainerCalendar />}
     </div>
   );
 };

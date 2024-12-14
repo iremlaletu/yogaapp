@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import ErrorPage from "./pages/ErrorPage";
-import RegisterPage from "./pages/RegisterPage";
-import TrainerPage from "./pages/TrainerPage";
+import React, { Suspense, useEffect } from "react";
+const HomePage = React.lazy(() => import("./pages/HomePage"));
+const RegisterPage = React.lazy(() => import("./pages/RegisterPage"));
+const TrainerPage = React.lazy(() => import("./pages/TrainerPage"));
+const ErrorPage = React.lazy(() => import("./pages/ErrorPage"));
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import LoadingSpinner from "./components/UI/LoadingSpinner";
 
 function App() {
   useEffect(() => {
@@ -15,12 +16,14 @@ function App() {
     });
   }, []);
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/trainers" element={<TrainerPage />} />
-      <Route path="*" element={<ErrorPage />} />
-    </Routes>
+    <Suspense fallback={<LoadingSpinner />}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/trainers" element={<TrainerPage />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </Suspense>
   );
 }
 

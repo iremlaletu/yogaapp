@@ -11,7 +11,6 @@ const Banner = () => {
           loop
           muted
           playsInline
-          poster="/assets/img/background/registerbg.jpg"
           className="absolute w-full h-full object-cover"
         />
 

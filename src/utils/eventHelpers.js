@@ -1,4 +1,9 @@
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export const generateEventsFromTrainers = (filteredTrainers) => {
   return filteredTrainers.flatMap((trainer) =>
@@ -6,7 +11,9 @@ export const generateEventsFromTrainers = (filteredTrainers) => {
       const startDateTime = dayjs(
         `${slot.date} ${slot.time}`,
         "YYYY-MM-DD h:mm A"
-      ).toDate();
+      )
+        .tz("Asia/Istanbul")
+        .toDate();
       const endDateTime = dayjs(startDateTime).add(50, "minute").toDate();
       return {
         title: `${trainer.name} - Yoga Class`,
