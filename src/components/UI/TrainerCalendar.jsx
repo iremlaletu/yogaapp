@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import Button from "./Button";
-import { generateEventsFromTrainers } from "../../utils/eventHelpers";
 import TrainerModal from "./TrainerModal";
 import { Calendar, dayjsLocalizer } from "react-big-calendar";
 import dayjs from "dayjs";
@@ -19,7 +18,22 @@ const TrainerCalendar = () => {
     (trainer) => trainer.city === filteredCity
   );
 
-  const events = generateEventsFromTrainers(filteredTrainers);
+  const events = filteredTrainers.flatMap((trainer) =>
+    trainer.availableSlot.map((slot) => {
+      const startDateTime = dayjs(
+        `${slot.date} ${slot.time}`,
+        "YYYY-MM-DD h:mm A"
+      ).toDate();
+      const endDateTime = dayjs(startDateTime).add(50, "minute").toDate();
+      return {
+        title: `${trainer.name} - Yoga Class`,
+        start: startDateTime,
+        end: endDateTime,
+        resource: trainer.name,
+        description: `${slot.place}`,
+      };
+    })
+  );
 
   const handleEventSelect = (event) => {
     setSelectedEvent(event);
