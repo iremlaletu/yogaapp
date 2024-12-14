@@ -25,7 +25,9 @@ const TrainerCalendar = () => {
         "YYYY-MM-DD h:mm A"
       ).toDate();
       const endDateTime = dayjs(startDateTime).add(50, "minute").toDate();
-
+      console.log("Mobil Slot:", slot);
+      console.log("Mobil Start Date:", startDateTime);
+      console.log("Mobil End Date:", endDateTime);
       return {
         title: `${trainer.name} - Yoga Class`,
         start: startDateTime,
@@ -35,13 +37,6 @@ const TrainerCalendar = () => {
       };
     })
   );
-  const testEvents = [
-    {
-      title: "Test Event",
-      start: new Date(2024, 11, 15, 12, 0), // Aralık 15, 2024, 12:00
-      end: new Date(2024, 11, 15, 12, 50), // Aralık 15, 2024, 12:50
-    },
-  ];
 
   const handleEventSelect = (event) => {
     setSelectedEvent(event);
@@ -63,7 +58,7 @@ const TrainerCalendar = () => {
         </div>
         <Calendar
           localizer={localizer}
-          events={testEvents}
+          events={events}
           startAccessor="start"
           endAccessor="end"
           style={{ height: 500, width: "90%", overflow: "visible" }}
