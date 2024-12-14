@@ -1,4 +1,5 @@
-import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa6";
+import { FaInstagram, FaYoutube } from "react-icons/fa6";
+import { RiTwitterXFill } from "react-icons/ri";
 
 export const nav = [
   { name: "Home", id: "banner" },
@@ -190,7 +191,7 @@ export const FooterData = {
 
   socialMediaLinks: [
     { name: "Instagram", href: "https://instagram.com", icon: FaInstagram },
-    { name: "Twitter", href: "https://twitter.com", icon: FaTwitter },
+    { name: "X", href: "https://twitter.com", icon: RiTwitterXFill },
     { name: "YouTube", href: "https://youtube.com", icon: FaYoutube },
   ],
 };

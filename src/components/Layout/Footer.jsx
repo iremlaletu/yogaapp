@@ -51,15 +51,15 @@ const Footer = () => {
           <div>
             <h3 className=" mb-4">Main Office</h3>
             <div className="flex items-center mb-2">
-              <FaLocationDot className="text-xl mr-2" />
+              <FaLocationDot className="text-lg mr-2" />
               <p className="text-sm ">123 Cadde, Istanbul, Turkey</p>
             </div>
             <div className="flex items-center mb-2">
-              <FaPhone className="text-xl mr-2" />
+              <FaPhone className="text-lg mr-2" />
               <p className="text-sm ">Phone: (123) 456-7890</p>
             </div>
             <div className="flex items-center">
-              <IoIosMail className="text-xl mr-2" />
+              <IoIosMail className="text-lg mr-2" />
               <p className="text-sm">Email: contact@yogaclub.com</p>
             </div>
           </div>

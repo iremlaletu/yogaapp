@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <section id="banner" className="h-screen w-full bg-neutral-500 ">
       <div className="flex items-center h-full relative">
-        {/* 
+        {/* */}
         <video
           src="/assets/video/bannerbg.mp4"
           autoPlay
@@ -14,7 +14,7 @@ const Banner = () => {
           poster="/assets/img/background/registerbg.jpg"
           className="absolute w-full h-full object-cover"
         />
-*/}
+
         <div className="absolute top-0 left-0 w-full h-full bg-neutral-500 opacity-30"></div>
 
         <div className="flex-1 text-right z-10 lg:pr-20 pr-5 ">
