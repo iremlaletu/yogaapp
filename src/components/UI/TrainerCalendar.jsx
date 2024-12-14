@@ -5,6 +5,7 @@ import TrainerModal from "./TrainerModal";
 import { Calendar, dayjsLocalizer } from "react-big-calendar";
 import dayjs from "dayjs";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { generateEventsFromTrainers } from "../../utils/eventHelper";
 
 const localizer = dayjsLocalizer(dayjs);
 
@@ -18,25 +19,7 @@ const TrainerCalendar = () => {
     (trainer) => trainer.city === filteredCity
   );
 
-  const events = filteredTrainers.flatMap((trainer) =>
-    trainer.availableSlot.map((slot) => {
-      const startDateTime = dayjs(
-        `${slot.date} ${slot.time}`,
-        "YYYY-MM-DD h:mm A"
-      ).toDate();
-      const endDateTime = dayjs(startDateTime).add(50, "minute").toDate();
-      console.log("Mobil Slot:", slot);
-      console.log("Mobil Start Date:", startDateTime);
-      console.log("Mobil End Date:", endDateTime);
-      return {
-        title: `${trainer.name} - Yoga Class`,
-        start: startDateTime,
-        end: endDateTime,
-        resource: trainer.name,
-        description: `${slot.place}`,
-      };
-    })
-  );
+  const events = generateEventsFromTrainers(filteredTrainers);
 
   const handleEventSelect = (event) => {
     setSelectedEvent(event);
