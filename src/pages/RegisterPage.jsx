@@ -70,7 +70,7 @@ const RegisterPage = () => {
         data-aos-delay="200"
         className="md:w-1/2 w-full h-full flex flex-col p-14"
       >
-        <h1 className="h1 text-center mb-5 text-primary-200 "> Gym Center </h1>
+        <h1 className="h1 text-center mb-5 text-primary-200 "> Yogai Club </h1>
         <h2 className="text-lg mb-4 text-center">
           {isRegistering ? "Register" : "Sign In"}
         </h2>

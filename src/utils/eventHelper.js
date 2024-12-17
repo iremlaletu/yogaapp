@@ -7,7 +7,6 @@ export const generateEventsFromTrainers = (filteredTrainers) => {
         `${slot.date} ${slot.time}`,
         "YYYY-MM-DD h:mm"
       ).toDate();
-      console.log(startDateTime);
       const endDateTime = dayjs(startDateTime).add(50, "minute").toDate();
       return {
         title: `${trainer.name} - Yoga Class`,
